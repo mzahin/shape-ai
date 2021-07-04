@@ -20,7 +20,7 @@ salt_hash_sha256 = (hashlib.sha256(salt.encode('utf-8')).hexdigest())
 join_hash_sha256 = password_hash_sha256 + salt_hash_sha256
 hash_sha256 = (hashlib.sha256(join_hash_sha256.encode('utf-8')).hexdigest())
 #Add 10 iterations to sha256
-hash10_sha256 = (hashlib.pbkdf2_hmac('sha256', b'password_hash_sha256', b'salt_hash_sha256', 100).hex)
+hash10_sha256 = (hashlib.pbkdf2_hmac('sha256', b'password_hash_sha256', b'salt_hash_sha256', 10).hex)
 
 #Hash password and salt with sha512
 password_hash_sha512 = (hashlib.sha512(password.encode('utf-8')).hexdigest())
@@ -29,7 +29,7 @@ salt_hash_sha512 = (hashlib.sha512(salt.encode('utf-8')).hexdigest())
 join_hash_sha512 = password_hash_sha512 + salt_hash_sha512
 hash_sha512 = (hashlib.sha512(join_hash_sha512.encode('utf-8')).hexdigest())
 #Add 10 iterations to sha512
-hash10_sha512 = (hashlib.pbkdf2_hmac('sha512', b'password_hash_sha512', b'salt_hash_sha512', 100).hex)
+hash10_sha512 = (hashlib.pbkdf2_hmac('sha512', b'password_hash_sha512', b'salt_hash_sha512', 10).hex)
 
 #Print data
 print()
